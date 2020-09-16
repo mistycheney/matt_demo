@@ -6,7 +6,22 @@ import functools
 from IPython.display import clear_output
 import ipywidgets as widgets
 import matplotlib.pyplot as plt
+from matplotlib.gridspec import GridSpec
 import time
+import textwrap
+
+def load_data(data_name):
+    time_series_query = pd.read_csv('matt_demo_hydraulic_data/time_series_query_0.csv', index_col=0).values.T
+    explanation = list(map(str, np.loadtxt('matt_demo_hydraulic_data/retrieved_explanations_0.txt', dtype=str, delimiter='\n')))[0]
+
+    fig = plt.figure(tight_layout=True, figsize=(20,5))
+    gs = GridSpec(1, 2, width_ratios=[3,1])
+    ax1 = fig.add_subplot(gs[0])
+    ax2 = fig.add_subplot(gs[1])
+    ax2.axis('off')
+    plot_mv(time_series_query, ax=ax1, highlight_sensor_indices=range(17))
+    ax2.text(x=0, y=1, s=textwrap.fill(explanation, width=40), fontsize=20, verticalalignment='top')
+    fig.suptitle('Example (time series, text) pair', fontsize=20)
 
 def train_model(data, output_model):
     print(f'Training {output_model} using provided data...')
@@ -55,7 +70,7 @@ def display_search_widgets(model):
             for i in range(4):
 #                 axes[i].plot(time_series_list[i]);
                 plot_mv(time_series_list[i], ax=axes[i], highlight_sensor_indices=[text_query_ind])
-                axes[i].set_title('Example %d' % i);
+                axes[i].set_title('Retrieved example %d' % i);
             plt.show();
 
     text = widgets.Text(value='', placeholder='e.g. pump severe leakage', disabled=False)
@@ -79,12 +94,18 @@ def plot_mv(mv, highlight_sensor_indices=[], title='', ax=None):
        'TS1', 'TS2', 'TS3', 'TS4', 'VS1', 'CE', 'CP', 'SE']
     
     if ax is None:
-        fig, ax = plt.subplots(1, 1, figsize=(10,6));
-    for si in range(17):
-        if si not in highlight_sensor_indices:
-            ax.plot(mv[si], label=sensors[si], alpha=0.15);
-    for si in highlight_sensor_indices:
-        ax.plot(mv[si], alpha=1, linewidth=2)
+        fig, ax = plt.subplots(1, 1, figsize=(10,5));
+        
+    if len(highlight_sensor_indices) > 0:
+        for si in range(17):
+            ax.plot(mv[si], 
+                    alpha=1. if si in highlight_sensor_indices else 0.15, 
+                    linewidth=2. if si in highlight_sensor_indices else 1., 
+                    label=sensors[si])
+    else:
+        for si in range(17):
+            ax.plot(mv[si], alpha=1, linewidth=1, label=sensors[si])
+            
     ax.set_title(title);
     ax.set_xlabel('Millisecond');
     ax.set_ylabel('Normalized value');
@@ -111,7 +132,7 @@ def display_expl_widgets(model):
 #             time_series_query = np.random.random(size=(100,1))
 #             time_series_query = pd.read_csv('matt_demo_data/time_series_query_%d.csv' % bi).values.T
             time_series_query = pd.read_csv('matt_demo_hydraulic_data/time_series_query_%d.csv' % bi, index_col=0).values.T
-            ax = plot_mv(time_series_query)
+            ax = plot_mv(time_series_query, title='Time series query %d' % bi)
 #             ax.plot(time_series_query);
 #             ax.set_xlabel('Time');
 #             ax.set_ylabel('Sensor');
@@ -133,7 +154,7 @@ def display_expl_widgets(model):
         with out_res:
             clear_output()
             for i, e in enumerate(explanation_list):
-                print('Explanation %d:\n%s\n' % (i, e))
+                print('Relevant explanation %d:\n%s\n' % (i, e))
 
     expl_button = widgets.Button(description='Click Here to Get Explanations from MATT',
                                  button_style='primary',
