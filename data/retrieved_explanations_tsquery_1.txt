@@ -1,0 +1,5 @@
+Hydraulic accumulator is at slightly reduced pressure. Cooler is not working. Valve has optimal switching behavior. System has reached stable overall condition. Internal pump shows severe leakage. 
+Valve has optimal switching behavior. Cooling system is close to total failure. Overall conditions are stable. severe leakage is observed at the internal pump. Hydraulic accumulator has slightly reduced pressure. 
+System has reached stable overall condition. Hydraulic accumulator is at slightly reduced pressure. Cooling system is close to total failure. Valve is showing optimal switching behavior. Internal pump has severe leakage. 
+Internal pump has severe leakage. Cooler is not working. Examining the valve shows it has optimal switching behavior. System has reached stable overall condition. Hydraulic accumulator is at slightly reduced pressure. 
+Internal pump shows severe leakage. Valve is showing optimal switching behavior. System has reached stable overall condition. Cooling circuit is not functioning. Hydraulic accumulator has slightly reduced pressure. 

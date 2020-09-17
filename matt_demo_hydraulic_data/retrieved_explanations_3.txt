@@ -1,5 +1,0 @@
-Hydraulic accumulator is slightly reduced pressure. Cooler condition is reduced effifiency. Internal pump leakage is severe leakage. Valve condition is close to total failure. stable flag is conditions were stable. 
-stable flag is conditions were stable. Internal pump leakage is severe leakage. Hydraulic accumulator is optimal pressure. Valve condition is close to total failure. Cooler condition is close to total failure. 
-Hydraulic accumulator is slightly reduced pressure. stable flag is conditions were stable. Valve condition is close to total failure. Cooler condition is reduced effifiency. Internal pump leakage is severe leakage. 
-Cooler condition is reduced effifiency. Valve condition is optimal switching behavior. stable flag is conditions were stable. Internal pump leakage is severe leakage. Hydraulic accumulator is slightly reduced pressure. 
-stable flag is conditions were stable. Valve condition is severe lag. Hydraulic accumulator is optimal pressure. Cooler condition is full efficiency. Internal pump leakage is severe leakage. 

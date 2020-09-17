@@ -1,0 +1,5 @@
+Valve is showing optimal switching behavior. Hydraulic accumulator is not working at all. Cooling circuit is operating at full efficiency. Internal pump has no leakage. Overall conditions are still unstable. 
+Hydraulic accumulator is not working at all. no leakage is observed at the internal pump. Cooler condition is at full efficiency. Static overall conditions might not have been reached yet. Examining the valve shows it has optimal switching behavior. 
+no leakage is observed at the internal pump. Static overall conditions might not have been reached yet. Cooler is running at full efficiency. Hydraulic accumulator is not working at all. Valve is showing optimal switching behavior. 
+Internal pump has no leakage. Cooler condition is at full efficiency. Hydraulic accumulator is close to total failure. Static overall conditions might not have been reached yet. Valve has optimal switching behavior. 
+Hydraulic accumulator showing significant degradation. Cooler is running at full efficiency. Valve is showing optimal switching behavior. Static overall conditions might not have been reached yet. no leakage is observed at the internal pump. 
